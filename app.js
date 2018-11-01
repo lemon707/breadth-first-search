@@ -32,7 +32,6 @@ var doBFS = function(graph, source) {
     var queue = new Queue();
     queue.enqueue(source);
 
-    //doesn't quite work yet
     while (!queue.isEmpty()) {
         var vertex = queue.dequeue();
         
@@ -40,8 +39,8 @@ var doBFS = function(graph, source) {
             var neighbor = graph[vertex][j];
             
             if(bfsInfo[vertex].neighbor === null) {
-                bfsInfo[vertex].neighbor.distance = bfsInfo[vertex].distance + 1;
-                bfsInfo[vertex].neighbor.predecessor = bfsInfo[vertex];
+                neighbor.distance = bfsInfo[vertex].distance + 1;
+                neighbor.predecessor = bfsInfo[vertex];
                 queue.enqueue(neighbor);
             }
         }
